@@ -1,0 +1,97 @@
+﻿@{
+    ViewData["Title"] = "";
+}
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://fonts.google.com/specimen/Poppins">
+</head>
+@* <img src="~/images/upright.png" alt = "Up right" id ="bg-upright" /> *@
+
+@* <img src="~/images/lowleft.png" alt = "Low left" id ="bg-lowleft" /> *@
+
+@* <footer class="border-top footer text-muted">
+    <div class="container">
+    &copy; 2020 - Commerce Bank - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script> *@
+@* @RenderSection("Scripts", required: false) *@
+
+</html>
+
+<div class="text-center">
+    <h1 class="display-4">Online Banking</h1>
+    <div>
+        <div class="row py-5">
+            <div class="col">
+                <h3>Account Balance: </h3>
+                <h3>$ @ViewData["Balance"] </h3>
+            </div>
+            <div class="col">
+                <h3>Last Transaction: </h3>
+                <h3>@ViewData["Date"]</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <a href="@Url.Action("Notifications","Notification")">
+                    <div class="card">
+                        <img class="card-img-top" src="~/images/CommerceBankNotifications.png" alt="Notifications">
+                        <div class="card-body">
+                            <h5 class="card-title">Notifications</h5>
+                            <p class="card-text">View notifications and edit triggers</p>
+                        </div>
+
+                            <!--Excel Export Notifications Button -->
+                            @{
+                                ViewBag.Title = "Notifications";
+                            }
+                            <div class="col">
+                                <form method="POST" asp-action= "ExportNotifications" asp-controller="Notification"> 
+                                <input type="submit" value="Export Notifications to an Excel file" title="Export An Excel File" button class="button"> </form>
+                             </div>
+                            <br>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="@Url.Action("Transactions","Transaction")">
+                    <div class="card">
+                        <img class="card-img-top" src="~/images/CommerceBankTransactions.png" alt="Transactions">
+                        <div class="card-body">
+                            <h5 class="card-title">Transactions</h5>
+                            <p class="card-text">View transaction details</p>
+                        </div>
+                    </div>
+            </div>
+            </a>
+        </div>
+        @* <h3 class="pt-3">Notifications</h3>
+            @foreach (var notification in @Model as List<Notification>)
+            {
+            <div class="card my-2">
+            <div class="card-body">
+            <span>Title:</span>
+            <p>@notification.Title</p>
+            <span>Description:</span>
+            <p>@notification.Description</p>
+            <span>Date:</span>
+            <p>@notification.NotifiedDate</p>
+            </div>
+            </div>
+            } *@
+    </div>
+
+

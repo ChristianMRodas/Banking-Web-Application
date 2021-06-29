@@ -1,0 +1,128 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+  /*color: #0366d6; */
+  color: #006747
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #006747;
+  border-color: #006747;
+}
+
+.button {
+  color: #fff;
+  background-color: #006747;
+  border-color: #006747;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #007AA3;
+  border-color: #007AA3;
+}
+
+.navbar-brand {
+  color: #006747;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+/*.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+} */
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px; /* Vertically center the text there */
+}
+
+/* Login font */
+/*html *{
+  font-family: 'Poppins', sans-serif !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+} */
+
+.content {
+  max-width: 1000px;
+  margin-left: auto;
+}
+
+#bg-lowleft {
+  background-color: rgb(255, 255, 255);
+  background-position: left;
+  background-size: 25% 25%;
+  background-repeat: no-repeat; 
+  float: left;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+#bg-upright {
+  background-color: rgb(255, 255, 255);
+  background-position: right;
+  background-size: 25% 25%;
+  background-repeat: no-repeat;
+  margin-right: 200px; 
+  float: right;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+#logo {
+  width: 85%;
+  height: 85%;
+  max-height: 100%;
+  max-width: 100%;
+}

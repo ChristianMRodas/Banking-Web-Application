@@ -1,0 +1,54 @@
+@model CommerceBankOnlineBanking.Models.UserLoginViewModel
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.google.com/specimen/Poppins">
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<div class="">
+    <img src="~/images/upright.png" alt="Up right" id="bg-upright" />
+    <img src="~/images/commercelogo.png" alt="Commerce Logo" id="logo" />
+
+
+    @{
+        ViewData["Title"] = "Login";
+    }
+
+    <link rel="stylesheet" href="https://fonts.google.com/specimen/Poppins">
+
+    <h1>@ViewData["Title"]</h1>
+
+    @{
+        if (ViewData["Error"] != null)
+        {
+            <div class="alert alert-danger">@ViewData["Error"]</div>
+        }
+    }
+
+    @using (Html.BeginForm("Login", "Authentication", FormMethod.Post))
+    {
+        @* <h3>Welcome Back!</h3> *@
+        <table>
+            <tr>
+                <td>Username</td>
+            </tr>
+            <tr>
+                <td>@Html.TextBoxFor(m => m.Username)</td>
+            </tr>
+            <tr>
+                <td class="control-label">Password</td>
+            </tr>
+            <tr>
+                <td>@Html.PasswordFor(m => m.Password)</td>
+            </tr>
+        </table>
+        <div class="pt-2">
+            <input type="submit" value="Login" class="btn btn-primary" />
+            <p>Need to create an account?&nbsp;<a asp-area="" asp-controller="Authentication" asp-action="SignUp">Sign
+                    Up</a>
+            </p>
+        </div>
+    }
+
+    <img src="~/images/lowleft.png" alt="Low left" id="bg-lowleft" />
+</div>

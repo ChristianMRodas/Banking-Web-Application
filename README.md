@@ -1,2 +1,43 @@
-# Banking-Web-Application
-Customers could create an account, login, access payments, download an Excel spreadsheet of transactions, and receive notifications. Built using .NET Core MVC 5 with Razor. In a team of 4.
+# .NET Core MVC 
+Application designed to allow users to securely and efficiently view their banking account information
+
+## Contributors
+Christian Barlow
+- Product Manager
+- Developer
+
+Mikaela Cubon
+  - Developer
+  - Tester 
+  
+Henri Ho
+  - Developer
+  - Tester
+
+Christian Rodas
+  - Developer
+  - Tester
+
+## MVC Stack
+- C# Razor HTML Front End
+- C# Business Layer
+- SQLite Database Access Layer
+
+
+## Commands
+
+Restore
+
+```dotnet restore```
+
+Update Database
+
+```dotnet ef database update```
+
+Build
+
+```dotnet build```
+
+Run
+
+```dotnet run```

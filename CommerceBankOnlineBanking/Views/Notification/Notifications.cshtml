@@ -1,0 +1,125 @@
+@model System.Collections.Generic.List<CommerceBankOnlineBanking.Models.Notification>
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+@{
+    ViewData["Title"] = "Edit notification rules";
+}
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.google.com/specimen/Poppins">
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="pt-2">
+    <div class="row">
+        <div class="col">
+            <p>Login Rule</p>
+        </div>
+        <div class="col">
+            <p>Times Tripped: @ViewData["LoginCount"]</p>
+        </div>
+        @if ((bool)ViewData["LoginEnabled"])
+        {
+            <div class="col">
+                <a
+                    href='@Url.Action("SetRuleType","Notification", new {ruleType=@NotificationRuleType.LOGIN, enabled=false})'>
+                    <button class="button">Disable</button>
+                </a>
+            </div>
+        }
+        else
+        {
+            <div class="col">
+                <a
+                    href='@Url.Action("SetRuleType", "Notification", new {ruleType=@NotificationRuleType.LOGIN, enabled=true})'>
+
+                    <button class="button">Enable</button>
+                </a>
+            </div>
+        }
+    </div>
+    <div class="row">
+        <div class="col">
+            <p>Transaction Rule </p>
+        </div>
+        <div class="col">
+            <p>Times Tripped: @ViewData["TransactionCount"]</p>
+        </div>
+        @if ((bool)ViewData["TransactionEnabled"])
+        {
+            <div class="col">
+                <a
+                    href='@Url.Action("SetRuleType","Notification", new {ruleType=@NotificationRuleType.TRANSACTION, enabled=false})'>
+                    <button class="button">Disable</button>
+                </a>
+            </div>
+        }
+        else
+        {
+            <div class="col">
+                <a
+                    href='@Url.Action("SetRuleType", "Notification", new {ruleType=@NotificationRuleType.TRANSACTION, enabled=true})'>
+
+                    <button class="button">Enable</button>
+                </a>
+            </div>
+        }
+    </div>
+    <div class="row">
+        <div class="col">
+            <p>Negative Balance Rule</p>
+        </div>
+        <div class="col">
+            <p>Times Tripped: @ViewData["BalanceCount"]</p>
+        </div>
+        @if ((bool)ViewData["BalanceEnabled"])
+        {
+            <div class="col">
+                <a
+                    href='@Url.Action("SetRuleType","Notification", new {ruleType=@NotificationRuleType.NEGATIVE_BALANCE, enabled=false})'>
+                    <button class="button">Disable</button>
+                </a>
+            </div>
+        }
+        else
+        {
+            <div class="col">
+                <a
+                    href='@Url.Action("SetRuleType", "Notification", new {ruleType=@NotificationRuleType.NEGATIVE_BALANCE, enabled=true})'>
+                    <button class="button">Enable</button>
+                </a>
+            </div>
+        }
+    </div>
+
+    <h3 class="pt-3">Notifications</h3>
+    @foreach (var notification in @Model as List<Notification>)
+    {
+        <div class="card my-2">
+            <div class="card-body">
+                <span>Title:</span>
+                <p>@notification.Title</p>
+                <span>Description:</span>
+                <p>@notification.Description</p>
+                <span>Date:</span>
+                <p>@notification.NotifiedDate</p>
+            </div>
+        </div>
+    }
+
+
+<!--Excel Export Notifications Button -->
+@{
+    ViewBag.Title = "Notifications";
+
+}
+    <div class="col">
+        <form method="POST" asp-action= "ExportNotifications" asp-controller="Notification"> 
+            <input type="submit" value="Export Notifications to an Excel file" title="Export An Excel File" button class="button"> </form>
+    </div>
+
+
+

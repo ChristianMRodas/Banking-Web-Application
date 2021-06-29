@@ -1,0 +1,40 @@
+@model System.Collections.Generic.List<CommerceBankOnlineBanking.Models.Transaction>
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+@{
+    ViewData["Title"] = "Transactions";
+}
+<h1>@ViewData["Title"]</h1>
+
+<style>
+    th,
+    td {
+        padding: 15px;
+    }
+</style>
+<div class="container">
+    <table border=1>
+        <th> Account# </th>
+        <th> Date </th>
+        <th> Balance </th>
+        <th> Action </th>
+        <th> Amount Change </th>
+        <th> Description </th>
+        @foreach (var transaction in @Model as List<Transaction>)
+        {
+            <tr>
+                <td>@transaction.AccountNumber</td>
+                <td>@transaction.ProcessingDate</td>
+                <td>@transaction.Balance</td>
+                <td>@transaction.Action</td>
+                <td>@transaction.Amount</td>
+                <td>@transaction.Description</td>
+            </tr>
+        }
+    </table>
+    <div class="row pt-3">
+        <div class="col">
+            <a asp-action="AddTransaction" asp-controller="Transaction"> <button class="button">+Add transaction</button> </a>
+        </div>
+    </div>
+</div>
